@@ -11,18 +11,18 @@ var (
 )
 
 func TouchFile(args ...string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("%w: Expected one argument (file name)", ErrInvalidCount)
+	switch len(args) {
+	case 1:
+		filename := args[1]
+		file, err := os.Create(filename)
+		if err != nil {
+			return err
+		}
+		defer file.Close()
+		return nil
+
+	default:
+		return fmt.Errorf("%w: expected zero or one arguments (directory)", ErrInvalidCount)
 	}
 
-	filename := args[0]
-
-	// Create a new file with the specified name.
-	file, err := os.Create(filename)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-
-	return nil
 }
