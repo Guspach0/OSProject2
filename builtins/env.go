@@ -1,16 +1,10 @@
 package builtins
 
 import (
-	"errors"
 	"fmt"
 	"io"
 	"os"
 	"strings"
-)
-
-var (
-	ErrInvalidArgCount = errors.New("invalid argument count")
-	HomeDir, _         = os.UserHomeDir()
 )
 
 func EnvironmentVariables(w io.Writer, args ...string) error {
