@@ -1,8 +1,8 @@
-package builtins_test
+package builtins
 
 import (
 	"errors"
-	"github.com/jh125486/CSCE4600/Project2/builtins"
+	"github.com/Guspach0/OSProject2/builtins"
 	"os"
 	"testing"
 )
