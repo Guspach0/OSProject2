@@ -1,13 +1,8 @@
 package builtins
 
 import (
-	"errors"
 	"fmt"
 	"os"
-)
-
-var (
-	ErrInvalidCount = errors.New("invalid argument count")
 )
 
 func TouchFile(args ...string) error {
@@ -22,7 +17,7 @@ func TouchFile(args ...string) error {
 		return nil
 
 	default:
-		return fmt.Errorf("%w: expected zero or one arguments (directory)", ErrInvalidCount)
+		return fmt.Errorf("%w: expected zero or one arguments (directory)", ErrInvalidArgCount)
 	}
 
 }
