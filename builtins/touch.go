@@ -8,7 +8,7 @@ import (
 func TouchFile(args ...string) error {
 	switch len(args) {
 	case 1:
-		filename := args[1]
+		filename := args[0]
 		file, err := os.Create(filename)
 		if err != nil {
 			return err

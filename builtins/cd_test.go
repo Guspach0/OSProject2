@@ -2,9 +2,10 @@ package builtins
 
 import (
 	"errors"
-	"github.com/Guspach0/OSProject2/builtins"
 	"os"
 	"testing"
+
+	"github.com/Guspach0/OSProject2/builtins"
 )
 
 func TestChangeDirectory(t *testing.T) {
