@@ -3,7 +3,7 @@ module main
 go 1.19
 
 require (
-	github.com/Guspach0/OSProject2 v0.0.0-20230423010418-b13056792610
+	github.com/Guspach0/OSProject2 v0.0.0-20230423012145-a292f8a7b3ea
 	github.com/stretchr/testify v1.8.2
 )
 
