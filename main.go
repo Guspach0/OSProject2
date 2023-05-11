@@ -82,6 +82,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.TouchFile(args...)
 	case "ls":
 		return builtins.ListDirectory(args...)
+	case "pwd":
+		return nil // for now
 	case "exit":
 		exit <- struct{}{}
 		return nil
