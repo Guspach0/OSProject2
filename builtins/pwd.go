@@ -1,4 +1,4 @@
-package pwd // package declaration
+package builtins // package declaration
 
 import (
 	"fmt"
@@ -6,12 +6,11 @@ import (
   "path/filepath"
 )
 
-func Pwd(options []string) { // prints the  pathname of the current working directory
-  
-  var dir string
-  var dir error
-  
-  if containsOption(options, "-P") { // the pathname printed will not contain symbolic links for -p
+func Pwd(options []string) error { // prints the  pathname of the current working directory
+	var dir string
+	var err error
+
+	if containsOption(options, "-P") { // the pathname printed will not contain symbolic links for -p
 		dir, err = os.Getwd()
 	} else if containsOption(options, "-L") { // pathname printed may contain symbolic links. 
 		dir, err = filepath.EvalSymlinks(".")
@@ -19,14 +18,16 @@ func Pwd(options []string) { // prints the  pathname of the current working dire
 		dir, err = filepath.Abs(".")
 	}
   
-	dir, err := os.Getwd()
+	dir, err = os.Getwd()
 	if err != nil {
 		fmt.Println("Error:", err)
-		return
+		return err
 	}
-	fmt.Println(dir)
+	_, err = fmt.Println(dir)
+	return err
 }
 
+/*
 func containsOption(options []string, option string) bool {
 	for _, opt := range options {
 		if opt == option {
@@ -35,3 +36,4 @@ func containsOption(options []string, option string) bool {
 	}
 	return false
 }
+*/
