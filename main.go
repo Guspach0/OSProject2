@@ -65,6 +65,9 @@ func printPrompt(w io.Writer) error {
 }
 
 func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
+	// save in history
+	builtins.StoreHistory(input)
+
 	// Remove trailing spaces.
 	input = strings.TrimSpace(input)
 
@@ -85,6 +88,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.ListDirectory(args...)
 	case "pwd":
 		return builtins.Pwd(args...)
+	case "history":
+		return builtins.History(w, args...)
 	case "exit":
 		exit <- struct{}{}
 		return nil
