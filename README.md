@@ -21,7 +21,7 @@ As an example, two shell builtins have already been added to the package builtin
 Added builtins
 - `touch`
 - `pwd`
-- `history'
+- `history`
 - `list`
 
 ## Steps
