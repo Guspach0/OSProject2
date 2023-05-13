@@ -3,7 +3,7 @@ package builtins // package declaration
 import (
 	"fmt"
 	"os"
-  "path/filepath"
+	"path/filepath"
 )
 
 func Pwd(options []string) error { // prints the  pathname of the current working directory
@@ -12,12 +12,12 @@ func Pwd(options []string) error { // prints the  pathname of the current workin
 
 	if containsOption(options, "-P") { // the pathname printed will not contain symbolic links for -p
 		dir, err = os.Getwd()
-	} else if containsOption(options, "-L") { // pathname printed may contain symbolic links. 
+	} else if containsOption(options, "-L") { // pathname printed may contain symbolic links.
 		dir, err = filepath.EvalSymlinks(".")
 	} else {
 		dir, err = filepath.Abs(".")
 	}
-  
+
 	dir, err = os.Getwd()
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -27,7 +27,6 @@ func Pwd(options []string) error { // prints the  pathname of the current workin
 	return err
 }
 
-/*
 func containsOption(options []string, option string) bool {
 	for _, opt := range options {
 		if opt == option {
@@ -36,4 +35,3 @@ func containsOption(options []string, option string) bool {
 	}
 	return false
 }
-*/
