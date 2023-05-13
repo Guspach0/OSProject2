@@ -18,6 +18,12 @@ As an example, two shell builtins have already been added to the package builtin
 - `cd`
 - `env`
 
+Added builtins
+- `touch`
+- `pwd`
+- `history'
+- `list`
+
 ## Steps
 
 1. Clone down the example input/output and skeleton `main.go`:
