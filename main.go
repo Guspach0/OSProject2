@@ -90,6 +90,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.Pwd(args)
 	case "history":
 		return builtins.History(w, args...)
+	case "echo":
+		return builtins.Echo(w, args...)
 	case "exit":
 		exit <- struct{}{}
 		return nil
